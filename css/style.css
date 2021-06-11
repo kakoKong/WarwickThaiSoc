@@ -105,6 +105,7 @@ body{font-size: var(--fs-body);}
 
 .navbar{
     background-color: white;
+    box-shadow: var(--bs);
 }
 
 .logo{
@@ -128,7 +129,7 @@ body{font-size: var(--fs-body);}
 }
 
 section{
-    padding: 5em 3em;
+    padding: 3em 3em;
 }
 .navbar-text{
     font-size: .75em;
@@ -137,7 +138,7 @@ section{
 .img-fluid{
     width: 100%;
     max-height: 500px;
-    margin-top: -3.5em;
+    margin-top: -6.5em;
 }
 
 .cover-img{
@@ -605,6 +606,7 @@ section{
 .transportation h2{
     text-align: center;
 }
+
 .coach, .train, .taxi{
     box-shadow: var(--bs);
     padding: 4em;
@@ -613,11 +615,36 @@ section{
 }
 
 .proscons{
-    text-align: center;
+    text-align: left;
+    font-size: 1.5em;
+}
+
+.proscons::after{
+    content:'';
+    display: block;
+    width: 50%;
+    height: 2px;
+    /* margin: 0.5em auto 1em; */
+    background: purple;
+    opacity: 0.25;
 }
 
 .trans-info{
-    padding: 2em 2em;
+    display: flex;
+    justify-content: center;
+    align-content: space-between;
+    flex-wrap: wrap;
+    padding: 2em 0;
+    list-style: none;
+}
+
+.info_item{
+    text-align: center;
+    /* margin: 0 3em; */
+}
+
+.info_item+.info_item{
+    margin: 0 2em;
 }
 
 /* Style the button that is used to open and close the collapsible content */
@@ -653,6 +680,23 @@ section{
 
 /* Accom */
 
+.coventry{
+    background-color: var(--clr-accent);
+    /* color: var(--clr-light); */
+}
+
+.section__title-coventry{
+    color: var(--clr-light);
+}
+
+.list-group-item-cov:hover{
+    background-color: white;
+}
+
+.list-group-item-cov{
+    text-align: left;
+}
+
 .cities{
     background-color: var(--clr-accent);
     color: white;
@@ -666,7 +710,7 @@ section{
 }
 .panel-title a{
   background-color: var(--clr-light);
-  border-radius: 10px;
+  /* border-radius: 10px; */
   padding: .5em;
   border: none;
   color: var(--clr-dark);
@@ -677,9 +721,10 @@ section{
   transition: 0.3s;
   
 }
-.panel-title .active, .panel-title a:hover{
+.panel-title >.active, .panel-title a:hover{
     text-decoration: none;
-    background-color: white;
+    background-color: var(--clr-dark);
+    color: white;
     transition: 1.4;
 
 }
@@ -687,6 +732,11 @@ section{
     /* background-color: var(--clr-accent); */
     border-radius: 10px;
     padding: 2em;
+}
+.help .fa-plane-arrival,
+.fa-home{
+    font-size: 4em;
+    padding: .25em 0;
 }
 
 .city-pic{
@@ -702,11 +752,21 @@ section{
 }
 .card-title{
     background-color: white;
-    border-radius: 50px;
     padding: .5em;
     text-align: center;
 }
 
+.accom-card{
+    border-style: solid;
+    border-width: 2px;
+    border-radius: 50px;
+    background-color: purple;
+    color: white;
+}
+
+.btn-primary{
+    background-color: red;
+}
 .d-block{
     height: 170px;
 }
