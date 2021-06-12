@@ -115,7 +115,7 @@ body{font-size: var(--fs-body);}
     border-color: rgba(51, 51, 51, 0.438);
     margin-right: 1em;
     position:relative;
-    width: 10%;
+    width: 50px;
     background-size: contain;
 }
 /* Style the navbar */
@@ -137,13 +137,14 @@ section{
 
 .img-fluid{
     width: 100%;
-    max-height: 500px;
     margin-top: -6.5em;
+    max-height: 400px; 
+    object-fit: cover;
 }
 
 .cover-img{
     background-color: var(--clr-dark);
-    width: 100%;
+    /* width: 100%; */
     position: relative;
 }
 
@@ -382,6 +383,13 @@ section{
     bottom: 11px
 }
 
+.exec-position{
+    font-family: var(--ff-primary);
+    font-weight: bold;
+    color: #552f86b9;
+    padding: -2em 0;
+}
+
 .mt-100 {
     margin-top: 100px
 }
@@ -393,8 +401,18 @@ section{
 
 .card-title{
     font-weight:700;
-    /* margin-bottom: 3em; */
 }
+
+.card-title::after{
+    content:'';
+    display: block;
+    width: 10em;
+    height: 3px;
+    margin: 0em auto 0em;
+    background: var(--clr-accent);
+    opacity: 0.25;
+}
+
 .card {
     border-radius: 15px;
     margin: 2em 1em;
@@ -563,11 +581,21 @@ section{
 }
 
 .flight{
-    margin: 2em;
+    margin: 1em 2em;
     border-radius: 10px;
     box-shadow: var(--bs);
     padding: 2em;
     text-align: center;
+}
+
+@media (max-width: 500px){
+    .flight{
+        margin: 1em -2em;
+    }
+
+    .transportation{
+        padding: 1em;
+    }
 }
 .flight h3{
     text-align: center;
@@ -609,7 +637,7 @@ section{
 
 .coach, .train, .taxi{
     box-shadow: var(--bs);
-    padding: 4em;
+    padding: 2em;
     margin: 2em;
     border-radius: 10px;
 }
@@ -671,7 +699,7 @@ section{
 }
 
 .content {
-  padding: 0 18px;
+  padding: 0 1px;
   max-height: 0;
   overflow: hidden;
   transition: max-height 0.2s ease-out;
@@ -706,10 +734,14 @@ section{
 }
 
 .panel-title{
+}
+
+.panel-heading{
     margin-top: 2em;
 }
 .panel-title a{
   background-color: var(--clr-light);
+  /* width: 10em; */
   /* border-radius: 10px; */
   padding: .5em;
   border: none;
