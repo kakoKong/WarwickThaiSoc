@@ -8,7 +8,7 @@
     --clr-light: #FBFCFC;
     --clr-dark: #2e1f42;
     --clr-lightfont:#c9bdfffb;
-    --clr-accent: #30039962;
+    --clr-accent: #8b79b6;
 
     --fs-h1: 3rem;
     --fs-h2: 2.25rem;
@@ -49,9 +49,10 @@ body{font-size: var(--fs-body);}
 }
 
 .btn2{
+    border-radius: 10px;
     display: inline-block;
     padding: .5em 2.5em;
-    background: var(--clr-accent);
+    background: var(--clr-light);
     color: var(--clr-dark);
     text-decoration: none;
     cursor: pointer;
@@ -74,8 +75,9 @@ body{font-size: var(--fs-body);}
     right: 4.5em;
 }
 .eventbtn{
+    border-radius: 10px;
     display: inline-block;
-    padding: .5em;
+    padding: .5em 1em;
     letter-spacing: 2px;
     margin:1em 0;
     font-size: 1rem;
@@ -140,10 +142,14 @@ section{
     margin-top: -6.5em;
     max-height: 400px; 
     object-fit: cover;
+
+    opacity: 50%;
 }
 
 .cover-img{
     background-color: var(--clr-dark);
+
+    /* opacity: 50%; */
     /* width: 100%; */
     position: relative;
 }
@@ -152,13 +158,31 @@ section{
     display: inline-block;
     font-weight: bold;
     position: relative;
-    /* text-align: right; */
+    width: 100%;
     padding:0 1em;
-    opacity: 100%;
+    opacity: 80%;
     top: 3em;
-
+    z-index: 100;
     background: var(--clr-accent);
     color: var(--clr-light);
+    animation: 1.2s ease-out 0s 1 slideInFromLeft;
+}
+@keyframes slideInFromLeft {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInFromRight {
+    0% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(0);
+    }
 }
 
 .title_about{
@@ -168,6 +192,7 @@ section{
     width: 100%;
     opacity: 70%;
     top: 4em;
+    animation: 1.2s ease-out 0s 1 slideInFromRight;
 }
 
 .section__about{
@@ -448,25 +473,46 @@ section{
 
 /* EVENTS */
 .list-group-item{
-    text-align: center;
+    text-align: left;
     text-decoration: none;
 }
 
 .list-group-item a{
     color:var(--clr-dark);
+    transition: 0.3s;
 }
 
 .list-group-item:hover{
     background-color: var(--clr-accent);
 }
 .list-group-item a:hover{
-    transform: scale(1.2);
+    transform: scale(2);
     text-decoration: none;
     font-weight: var(--fw-bold);
     color: white;
 }
 
+@keyframes appear {
+    from {opacity: 0%;}
+    to {opacity: 90%;}
+  }
 
+.title_event{
+    display: inline-block;
+    padding: 0 1em;
+    font-weight: bold;
+    position: relative;
+    text-align: center;
+    font-size: var(--fs-h1);
+    background-color: transparent;
+    color: white;
+    opacity: 90%;
+    top: 1.5em;
+    opacity: 100%;
+    text-transform: uppercase;
+    z-index: 100;
+    animation: 1.2s ease-out 0s 1 appear;
+}
 .event-title{
     font-size: 4rem;
     margin-top: 1em;
@@ -478,8 +524,8 @@ section{
 }
 
 .event_dark{
-    background-color: var(--clr-dark);
-    color: var(--clr-lightfont);
+    background-color: var(--clr-accent);
+    color: white;
 }
 
 .section__subtitle--eventL{
@@ -708,12 +754,12 @@ section{
 
 /* Accom */
 
-.coventry{
+.onCampus, .leamington{
     background-color: var(--clr-accent);
     /* color: var(--clr-light); */
 }
 
-.section__title-coventry{
+.section__title-onCampus, .section__title-leamington{
     color: var(--clr-light);
 }
 
@@ -725,27 +771,29 @@ section{
     text-align: left;
 }
 
+.city-pic{
+    max-width: 40em;
+    padding: 0 2em;
+}
 .cities{
-    background-color: var(--clr-accent);
-    color: white;
+    color: var(--clr-accent);
 }
 .panel{
     text-align: center;
-}
 
-.panel-title{
+    border-radius: 10px;
 }
 
 .panel-heading{
     margin-top: 2em;
 }
 .panel-title a{
-  background-color: var(--clr-light);
+  background-color: var(--clr-dark);
   /* width: 10em; */
   /* border-radius: 10px; */
-  padding: .5em;
+  padding: .25em;
   border: none;
-  color: var(--clr-dark);
+  color: var(--clr-light);
   text-align: center;
   font-size: var(--fs-h3);
   margin: 4px 2px;
@@ -753,12 +801,17 @@ section{
   transition: 0.3s;
   
 }
-.panel-title >.active, .panel-title a:hover{
+.panel-title-active, .panel-title a:hover{
     text-decoration: none;
-    background-color: var(--clr-dark);
-    color: white;
+    background-color: var(--clr-accent);
+    color: var(--clr-dark);
     transition: 1.4;
 
+}
+
+.panel-collapse{
+    padding: 1em 0;
+    box-shadow: var(--bs);
 }
 .panel-body{
     /* background-color: var(--clr-accent); */
@@ -771,30 +824,6 @@ section{
     padding: .25em 0;
 }
 
-.city-pic{
-    margin-top: 2em;
-    border-radius: 3px;
-    width: 100%;
-}
-
-.card-container{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-}
-.card-title{
-    background-color: white;
-    padding: .5em;
-    text-align: center;
-}
-
-.accom-card{
-    border-style: solid;
-    border-width: 2px;
-    border-radius: 50px;
-    background-color: purple;
-    color: white;
-}
 
 .btn-primary{
     background-color: red;
